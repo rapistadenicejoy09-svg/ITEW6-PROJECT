@@ -183,8 +183,22 @@ body {
   color: var(--text);
 }
 
+.footer-user-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-user-link:hover {
+  text-decoration: underline;
+}
+
 body[data-theme='light'] .footer-user {
   color: #111827;
+}
+
+body[data-theme='light'] .footer-user-link {
+  color: #c45a1a;
 }
 
 /* MAIN */
@@ -331,6 +345,215 @@ body[data-theme='light'] .footer-user {
   flex-direction: column;
   gap: 12px;
   overflow: hidden;
+}
+
+.profile-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  padding-top: 4px;
+}
+
+.profile-section {
+  background: rgba(3, 5, 20, 0.9);
+  border-radius: 16px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.profile-section .content-title {
+  font-size: 14px;
+}
+
+.profile-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.profile-list li + li {
+  margin-top: 2px;
+}
+
+/* PROFILE PAGES (Admin, Student, Faculty) */
+
+.profile-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: auto;
+}
+
+.profile-hero {
+  padding: 24px 20px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-hero-admin,
+.profile-hero-student,
+.profile-hero-faculty {
+  background: radial-gradient(circle at top left, #222a4b 0%, #151a35 50%);
+  border-left: 4px solid var(--accent);
+}
+
+.profile-hero-badge {
+  display: inline-block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.profile-hero-admin .profile-hero-badge,
+.profile-hero-student .profile-hero-badge,
+.profile-hero-faculty .profile-hero-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 auto 10px;
+}
+
+.profile-avatar-admin,
+.profile-avatar-student,
+.profile-avatar-faculty {
+  background: linear-gradient(135deg, var(--accent), #f0a050);
+  color: #1a0d05;
+}
+
+.profile-hero-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.profile-hero-subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.profile-card {
+  border-radius: 16px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.profile-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-card-admin,
+.profile-card-student,
+.profile-card-faculty {
+  background: radial-gradient(circle at top left, #222a4b 0%, #151a35 45%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 3px solid var(--accent);
+}
+
+.profile-card-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-card-icon {
+  font-size: 16px;
+}
+
+.profile-card-icon-svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+body[data-theme='light'] .profile-card-icon-svg {
+  color: #c45a1a;
+}
+
+.profile-card-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.profile-card-list li {
+  margin-bottom: 2px;
+}
+
+/* Profile pages - LIGHT MODE */
+
+body[data-theme='light'] .profile-hero {
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+body[data-theme='light'] .profile-hero-admin,
+body[data-theme='light'] .profile-hero-student,
+body[data-theme='light'] .profile-hero-faculty {
+  background: radial-gradient(circle at top left, #fff5ed 0%, #f5e8dc 45%);
+  border-left-color: var(--accent);
+}
+
+body[data-theme='light'] .profile-hero-admin .profile-hero-badge,
+body[data-theme='light'] .profile-hero-student .profile-hero-badge,
+body[data-theme='light'] .profile-hero-faculty .profile-hero-badge {
+  background: var(--accent-soft);
+  color: #c45a1a;
+}
+
+body[data-theme='light'] .profile-hero-title {
+  color: #111827;
+}
+
+body[data-theme='light'] .profile-hero-subtitle {
+  color: #6b7280;
+}
+
+body[data-theme='light'] .profile-card-admin,
+body[data-theme='light'] .profile-card-student,
+body[data-theme='light'] .profile-card-faculty {
+  background: radial-gradient(circle at top left, #fff8f3 0%, #f5e8dc 45%);
+  border-color: rgba(148, 163, 184, 0.35);
+  border-top-color: var(--accent);
+}
+
+body[data-theme='light'] .profile-card-title {
+  color: #111827;
+}
+
+body[data-theme='light'] .profile-card-list {
+  color: #4b5563;
 }
 
 .content-header {

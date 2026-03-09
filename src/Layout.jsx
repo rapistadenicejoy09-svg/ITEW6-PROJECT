@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
 
 const MODULES = [
-  { id: 'student-profile', code: '1.1', title: 'Student Profile', path: '/student-profile' },
   { id: 'faculty-profile', code: '1.2', title: 'Faculty Profile', path: '/faculty-profile' },
   { id: 'events', code: '1.3', title: 'Events', path: '/events' },
   { id: 'scheduling', code: '1.4', title: 'Scheduling', path: '/scheduling' },
@@ -13,6 +12,7 @@ const MODULES = [
 export default function Layout() {
   const [theme, setTheme] = useState('light')
   const [userLabel, setUserLabel] = useState('')
+  const [profilePath, setProfilePath] = useState(null)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -23,6 +23,7 @@ export default function Layout() {
     const studentSession = localStorage.getItem('studentSession')
     const facultySession = localStorage.getItem('facultySession')
 
+    let path = null
     if (adminSession) {
       try {
         const parsed = JSON.parse(adminSession)
@@ -31,6 +32,7 @@ export default function Layout() {
         } else if (parsed?.email) {
           label = `Admin: ${parsed.email}`
         }
+        path = '/admin-profile'
       } catch {
         // ignore parse errors
       }
@@ -39,6 +41,7 @@ export default function Layout() {
         const parsed = JSON.parse(studentSession)
         if (parsed?.idOrEmail) {
           label = `Student: ${parsed.idOrEmail}`
+          path = '/student-profile'
         }
       } catch {
         // ignore parse errors
@@ -48,6 +51,7 @@ export default function Layout() {
         const parsed = JSON.parse(facultySession)
         if (parsed?.email) {
           label = `Faculty: ${parsed.email}`
+          path = '/faculty-my-profile'
         }
       } catch {
         // ignore parse errors
@@ -55,6 +59,7 @@ export default function Layout() {
     }
 
     setUserLabel(label)
+    setProfilePath(path)
   }, [theme])
 
   return (
@@ -96,7 +101,13 @@ export default function Layout() {
           {userLabel && (
             <>
               <div className="footer-title">Signed in as</div>
-              <div className="footer-user">{userLabel}</div>
+              {profilePath ? (
+                <Link to={profilePath} className="footer-user footer-user-link">
+                  {userLabel}
+                </Link>
+              ) : (
+                <div className="footer-user">{userLabel}</div>
+              )}
             </>
           )}
         </div>

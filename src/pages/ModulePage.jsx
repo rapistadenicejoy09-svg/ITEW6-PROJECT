@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 const MODULES = {
   'student-profile': {
@@ -57,9 +57,10 @@ const MOCK_DATA = {
 }
 
 export default function ModulePage() {
-  const { moduleId } = useParams()
+  const { pathname } = useLocation()
+  const moduleId = pathname.slice(1).split('/')[0] || null
   const [search, setSearch] = useState('')
-  const module = MODULES[moduleId]
+  const module = moduleId ? MODULES[moduleId] : null
   const items = MOCK_DATA[moduleId] ?? []
 
   const filteredItems = useMemo(() => {

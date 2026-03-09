@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom
 import Layout from './Layout'
 import Dashboard from './pages/Dashboard'
 import ModulePage from './pages/ModulePage'
+import AdminProfile from './pages/AdminProfile'
+import StudentProfile from './pages/StudentProfile'
+import FacultyProfile from './pages/FacultyProfile'
 import AdminLogin from './pages/AdminLogin'
 import AdminCreateAccount from './pages/AdminCreateAccount'
 import StudentLogin from './pages/StudentLogin'
@@ -28,7 +31,9 @@ export default function App() {
         <Route element={<RequireAuth />}>
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
-            <Route path="student-profile" element={<ModulePage />} />
+            <Route path="admin-profile" element={<AdminProfile />} />
+            <Route path="student-profile" element={<StudentProfile />} />
+            <Route path="faculty-my-profile" element={<FacultyProfile />} />
             <Route path="faculty-profile" element={<ModulePage />} />
             <Route path="events" element={<ModulePage />} />
             <Route path="scheduling" element={<ModulePage />} />
