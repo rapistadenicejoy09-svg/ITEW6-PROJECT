@@ -200,7 +200,6 @@ body[data-theme='light'] .footer-user {
 body[data-theme='light'] .footer-user-link {
   color: #c45a1a;
 }
-
 /* MAIN */
 
 .main {
@@ -614,7 +613,6 @@ body[data-theme='light'] .profile-card-list {
   padding: 5px 10px;
   font-size: 11px;
 }
-
 .mode-toggle {
   border-radius: var(--radius-pill);
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -908,7 +906,6 @@ body[data-theme='light'] .auth-error {
   background: rgba(220, 38, 38, 0.06);
   border-color: rgba(220, 38, 38, 0.6);
 }
-
 /* LIGHT THEME */
 
 body[data-theme='light'] {

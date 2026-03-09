@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
 
 const MODULES = [
+  { id: 'student-profile', code: '1.1', title: 'Student Profile', path: '/student-profile' },
   { id: 'faculty-profile', code: '1.2', title: 'Faculty Profile', path: '/faculty-profile' },
   { id: 'events', code: '1.3', title: 'Events', path: '/events' },
   { id: 'scheduling', code: '1.4', title: 'Scheduling', path: '/scheduling' },
